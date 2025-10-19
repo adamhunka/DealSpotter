@@ -1,94 +1,112 @@
-# 10x Astro Starter
+# DealSpotter
 
-A modern, opinionated starter template for building fast, accessible, and AI-friendly web applications.
+[![Version](https://img.shields.io/badge/version-0.0.1-blue)](#)  
+[![Build Status](https://img.shields.io/github/actions/workflow/status/USERNAME/DealSpotter/ci.yml?branch=main)](#)  
+[![License](https://img.shields.io/badge/license-TBD-lightgrey)](#)
+
+A web application for families and retirees to automatically collect and present promotional prices from Biedronka and Lidl PDF flyers. DealSpotter provides secure authentication, scheduled PDF fetching, high-accuracy data extraction, and an interactive UI with filtering, sorting, and performance monitoring.
+
+## Table of Contents
+
+1. [Tech Stack](#tech-stack)  
+2. [Getting Started Locally](#getting-started-locally)  
+3. [Available Scripts](#available-scripts)  
+4. [Project Scope](#project-scope)  
+5. [Project Status](#project-status)  
+6. [License](#license)  
 
 ## Tech Stack
 
-- [Astro](https://astro.build/) v5.5.5 - Modern web framework for building fast, content-focused websites
-- [React](https://react.dev/) v19.0.0 - UI library for building interactive components
-- [TypeScript](https://www.typescriptlang.org/) v5 - Type-safe JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) v4.0.17 - Utility-first CSS framework
+- **Frontend**  
+  - Astro 5  
+  - React 19  
+  - TypeScript 5  
+  - Tailwind CSS 4  
+  - Shadcn/ui (Radix UI + Lucide React)  
+- **Backend**  
+  - Supabase (Postgres database, Auth, SDKs)  
+- **AI / LLM**  
+  - Openrouter.ai (gateway to OpenAI, Anthropic, Google, etc.)  
+- **CI/CD & Hosting**  
+  - GitHub Actions  
+  - Docker on DigitalOcean  
 
-## Prerequisites
+## Getting Started Locally
 
-- Node.js v22.14.0 (as specified in `.nvmrc`)
-- npm (comes with Node.js)
+### Prerequisites
 
-## Getting Started
+- Node.js v22.14.0 (see `.nvmrc`)  
+- nvm or similar Node version manager  
+- A Supabase project (URL and API key)  
+- Openrouter.ai API key (if using LLM features)  
 
-1. Clone the repository:
+### Clone & Install
 
 ```bash
-git clone https://github.com/przeprogramowani/10x-astro-starter.git
-cd 10x-astro-starter
-```
-
-2. Install dependencies:
-
-```bash
+git clone https://github.com/USERNAME/DealSpotter.git
+cd DealSpotter
+nvm use
 npm install
 ```
 
-3. Run the development server:
+### Environment
+
+Create a `.env` file in the project root with:
+
+```bash
+SUPABASE_URL=your-supabase-url
+SUPABASE_ANON_KEY=your-supabase-anon-key
+OPENROUTER_API_KEY=your-openrouter-api-key
+```
+
+### Run Development Server
 
 ```bash
 npm run dev
 ```
 
-4. Build for production:
-
-```bash
-npm run build
-```
+Your site will be available at `http://localhost:3000`.
 
 ## Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
+- `npm run dev`  
+  Start Astro in development mode with hot reloading.  
+- `npm run build`  
+  Build the production site.  
+- `npm run preview`  
+  Preview the production build locally.  
+- `npm run astro`  
+  Run the Astro CLI.  
+- `npm run lint`  
+  Run ESLint.  
+- `npm run lint:fix`  
+  Run ESLint with automatic fixes.  
+- `npm run format`  
+  Format code with Prettier.  
 
-## Project Structure
+## Project Scope
 
-```md
-.
-├── src/
-│   ├── layouts/    # Astro layouts
-│   ├── pages/      # Astro pages
-│   │   └── api/    # API endpoints
-│   ├── components/ # UI components (Astro & React)
-│   └── assets/     # Static assets
-├── public/         # Public assets
-```
+### In Scope (MVP)
 
-## AI Development Support
+- Secure email/password authentication (registration with activation link, login, reset password)  
+- Automated PDF downloads (2×/week) from Biedronka and Lidl  
+- PDF parsing & data extraction (products, promo price, conditions) with ≥ 90% accuracy  
+- Interactive product list with filter by category/store, sort descending by price, and pagination or lazy loading  
+- Monitoring & alerting on parsing errors (> 5% weekly)  
+- Logging LLM queries and responses (90-day retention)  
+- Performance targets: API < 500 ms, list render of 50 items < 2 s  
 
-This project is configured with AI development tools to enhance the development experience, providing guidelines for:
+### Out of Scope
 
-- Project structure
-- Coding practices
-- Frontend development
-- Styling with Tailwind
-- Accessibility best practices
-- Astro and React guidelines
+- Push/email notifications or alerts to end users  
+- OAuth or external authentication providers  
+- Non-PDF formats (images, HTML)  
+- Advanced product taxonomy or automatic category mapping  
 
-### Cursor IDE
+## Project Status
 
-The project includes AI rules in `.cursor/rules/` directory that help Cursor IDE understand the project structure and provide better code suggestions.
-
-### GitHub Copilot
-
-AI instructions for GitHub Copilot are available in `.github/copilot-instructions.md`
-
-### Windsurf
-
-The `.windsurfrules` file contains AI configuration for Windsurf.
-
-## Contributing
-
-Please follow the AI guidelines and coding practices defined in the AI configuration files when contributing to this project.
+**MVP in development:** Core features implemented; ongoing testing, validation, and performance tuning.
 
 ## License
 
-MIT
+This project does not yet have a license. Add a `LICENSE` file and update this section.
