@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 # AI Rules for {app-name}
 
-{project-description}
+DeelSpotter is a web application that helps users track promotional prices of products published in promotional flyers of grocery discount stores.
 
 ## Tech Stack
 
