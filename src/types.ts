@@ -141,6 +141,22 @@ export interface ExtractFlyerCommand {
   flyerId: string;
 }
 
+// Command model for querying extraction logs (GET /logs/extraction)
+export interface ExtractionLogsQueryCommand {
+  page: number;
+  limit: number;
+  flyerId?: string;
+  status?: "success" | "error" | "partial";
+}
+
+// Command model for querying LLM logs (GET /logs/llm)
+export interface LLMLogsQueryCommand {
+  page: number;
+  limit: number;
+  model?: string;
+  status?: "success" | "error" | "timeout";
+}
+
 // Generic Job Response DTO for POST operations returning a job ID
 export interface JobResponseDTO {
   jobId: string;
